@@ -16,6 +16,14 @@ let lastY = 0;
 function draw(e) {
   if (!isDrawing) return;
   console.log(e);
+  ctx.beginPath();
+  //   start from
+  ctx.moveTo(lastX, lastY);
+  //   go to
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+  lastX = e.offsetX;
+  lastY = e.offsetY;
 }
 
 canvas.addEventListener("mousemove", draw);
